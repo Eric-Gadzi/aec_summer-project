@@ -1,0 +1,131 @@
+<?php 
+ 
+// Load the database configuration file 
+include_once 'dbConfig.php'; 
+ 
+// Fetch records from database 
+$query = $db->query("SELECT * FROM members ORDER BY id ASC"); 
+ 
+if($query->num_rows > 0){ 
+    $delimiter = ","; 
+    $filename = "members-data_" . date('Y-m-d') . ".csv"; 
+     
+    // Create a file pointer 
+    $f = fopen('php://memory', 'w'); 
+     
+    // Set column headers 
+    $fields = array('ID', 'FIRST NAME', 'LAST NAME', 'EMAIL', 'GENDER', 'COUNTRY', 'CREATED', 'STATUS'); 
+    fputcsv($f, $fields, $delimiter); 
+     
+    // Output each row of the data, format line as csv and write to file pointer 
+    while($row = $query->fetch_assoc()){ 
+        $status = ($row['status'] == 1)?'Active':'Inactive'; 
+        $lineData = array($row['id'], $row['first_name'], $row['last_name'], $row['email'], $row['gender'], $row['country'], $row['created'], $status); 
+        fputcsv($f, $lineData, $delimiter); 
+    } 
+     
+    // Move back to beginning of file 
+    fseek($f, 0); 
+     
+    // Set headers to download file rather than displayed 
+    header('Content-Type: text/csv'); 
+    header('Content-Disposition: attachment; filename="' . $filename . '";'); 
+     
+    //output all remaining data on a file pointer 
+    fpassthru($f); 
+} 
+exit; 
+ 
+?>
+
+It should be a drop down menu 
+For each one of the value for dropdown menuIt should house the id of it.
+
+Method to refresh page automatically{
+
+function loadlink(){
+    $('#links').load('test.php',function () {
+         $(this).unwrap();
+    });
+}
+
+loadlink(); // This will run on page load
+setInterval(function(){
+    loadlink() // this will run after every 5 seconds
+}, 5000);
+
+
+}
+
+number of attendance for events
+
+
+
+
+<?php
+
+      $chkresults = mysqli_query($con,"SELECT MONTH(subscribed_on) AS subscriber_month, COUNT(*) AS subscriber_count FROM subscribers GROUP BY MONTH(subscribed_on)");
+
+    
+
+      ?>
+
+    <script type="text/javascript">
+
+      google.charts.load('current', {'packages':['Line']});
+
+      google.charts.setOnLoadCallback(drawChart);
+
+ 
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+
+           ['Month','Subscribers'],
+
+         <?php
+
+     
+
+        while($row=mysqli_fetch_assoc($chkresults)){
+
+            
+
+           echo "['".$row["subscriber_month"]."',".$row["subscriber_count"]."],";
+
+          }
+
+         ?>
+
+        ]);
+
+        var options = {
+
+          chart: {
+
+            title: '',          
+
+          },
+
+          bars: 'vertical',
+
+          vAxis: {format: 'decimal'},
+
+          height: 300,
+
+          colors: ['#d95f02']
+
+        };
+
+ 
+
+        var chart = new google.charts.Line(document.getElementById('line-chart-location'));
+
+ 
+
+        chart.draw(data, google.charts.Line.convertOptions(options));
+
+      }
+
+    </script>

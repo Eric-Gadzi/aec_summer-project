@@ -1,0 +1,6 @@
+-- Finish functions by Tomoro
+--Refined  all function
+
+-- Number of event times an event is organised pie chart
+--Participation in various event barchart
+-- Upcoming events

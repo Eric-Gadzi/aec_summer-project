@@ -1,0 +1,84 @@
+/*This will style the Adminpage*/
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+    background: #560606;
+}
+.row{
+    background: white;
+    border-radius: 30px;
+    height:600px;
+    width: 100%;
+    position: relative;
+    top: 125px;
+    box-shadow: 12px 12px 22px grey;
+}
+
+div.left-side{
+    background-color: rgb(240, 236, 236); 
+    background-size: cover;
+    padding:50px;
+}
+
+div.left-side img{
+    margin-top:5em; 
+    margin-left:-5.5em;
+}
+
+div h1.login-header {
+    font-family: 'Open Sans', sans-serif; 
+    color:#560606; 
+    font-weight: 700; font-size: 2em;
+}
+
+div h6 {
+    font-weight: 300; 
+    font-family: 'Open Sans', sans-serif; 
+    font-size: 0.88em;
+}
+
+div img.image-left{
+    margin:auto;
+}
+
+.btn1{
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    background-color:#560606;
+    color: white;
+    border-radius:4px;
+    font-weight: bold;
+
+}
+
+/* HOver effect on the LOgin button */
+.btn1:hover{
+    background: white;
+    border:1px solid;
+    color:black;
+}
+.img-fluid1{
+    height: 8em;
+    width:15em;
+    top:-2em;
+    left:-2em;
+    margin-bottom:-100px;
+    padding:0;
+    position:relative; 
+}
+
+div.col-lg-7 a{
+    font-family: 'Open Sans', sans-serif; 
+    font-weight: 700; color:brown;
+}
+
+/* -------END-------------------------- */
